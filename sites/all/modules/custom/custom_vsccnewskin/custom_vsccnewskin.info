@@ -1,0 +1,8 @@
+name = Custom VSCC new skin
+description =  custom module implementing a new skin for VSCC.
+dependencies[] = vscc
+package = Views
+core = 7.x
+
+
+

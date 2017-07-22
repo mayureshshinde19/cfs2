@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Quicktabs added for child elements feature.
+ */
+
+include_once 'quicktabs_added_for_child_elements.features.inc';

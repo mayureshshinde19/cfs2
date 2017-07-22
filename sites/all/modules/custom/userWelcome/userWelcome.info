@@ -1,0 +1,4 @@
+name = Welcome User Message
+description = 'It displays a welcome /'!uwsername message/' on the top right header of the screen'
+core = 7.x
+version = 1.x

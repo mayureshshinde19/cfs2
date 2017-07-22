@@ -1,0 +1,13 @@
+name = Quicktabs added for child elements
+description = child level quicktabs. put these quicktabs as instance to parent quicktab
+core = 7.x
+package = Features
+version = 7.x-1.0
+dependencies[] = ctools
+dependencies[] = quicktabs
+features[ctools][] = quicktabs:quicktabs:1
+features[features_api][] = api:2
+features[quicktabs][] = my_activities_quicktab
+features[quicktabs][] = my_asset_quicktab
+features[quicktabs][] = my_discussion_quicktab
+project path = sites/all/modules/feature

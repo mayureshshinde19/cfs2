@@ -1,0 +1,33 @@
+BI Client Members KT session : 23rd May 2017
+
+Topic:- Dev Site spin Up Process
+1. They felt that the process takes more time
+2. Suggested use of settings.php for common as well as specific versions(e.g. settings.local.php, settings.dev.php etc.) and set variables to decrease the load on variables.conf 
+3. A cleanup is needed to remove deprecated functionality.
+
+Topic:- Brightcove 
+1. max upload size for brightcove videos is less(10MB). Deep suggested It can be changed by editing the max_upload_size at server level or site level
+2. brightcove media player is not responsive. It can be possible with proper theming or updates that come in contrib module for brightcove.
+
+
+Topic:- BI Disclaimer message
+1. needed the message popup window to support HTML. Since the requirement was for an alert box, it was a plain message box.
+
+
+Topic:- Adverse Event Reports
+1.User must come to know which words he has used are adverse/improper in the pop-up message.
+2. there can be a way to track adverse event by anonymous users through their IP address. 
+3. Deep suggested a hub component for making note of all adverse event records and configuration settings for the same.
+
+
+Topic:- Hubconfig component
+1. Some sites still rely on hubcore config settings to configure the VEEVA CRM on spbth
+2. Deep explained the use of hubconfig to avoid blocking the veeva vault account in case of incorrect password.
+
+
+Topic:- Veeva Vault
+1. If veeva account gets blocked, the account owner can get a notification email. Deep suggested a user story for this in JIRA.
+2. Mattias suggested an increase in number of veeva vault accounts to make sure SPBTH is always connected to the veeva vault.
+3. Raul needs a diagrammatic representation of VEEVA vault API workflow for previous and current state(with and without hubconfig).
+
+***Raul needs a list of add-ons and corresponding confluence page links for the topics that were covered on Day 2.***

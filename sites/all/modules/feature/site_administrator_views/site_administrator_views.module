@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Site Administrator Views feature.
+ */
+
+include_once 'site_administrator_views.features.inc';

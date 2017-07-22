@@ -1,0 +1,9 @@
+name = blocks
+description = This contains blocks.
+core = 7.x
+package = Features
+version = 7.x-1.0
+dependencies[] = blockexport
+features[blockexport_settings][] = block_settings
+features[features_api][] = api:2
+project path = sites/all/modules/feature

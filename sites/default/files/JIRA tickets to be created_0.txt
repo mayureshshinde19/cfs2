@@ -1,0 +1,17 @@
+JIRA Tickets to be created :-
+
+1. Hubtagging in client(SPBTH) uses drop down menu links to enable and sync  taxonomy terms. Buttons can be used instead to achieve this functionality.
+
+2. Vocabularies in master(hubtagging) should be auto synced to all existing content types. Currently we have to create new content type to sync the updated changes from master to client.
+
+3. Need a good UI on hubtaglog for better view of logs/reports.
+
+4. Need to redesign URL shortening so that it may not require site token, page token
+
+5. clean up the deprecated features(already present in backlog)
+
+5. Remove old dashbaord from hubcore(already present in backlog)
+
+6. Redesign hubcore dashboard(more presentable and UI friendly).
+
+7. If a Veeva vault account gets disabled, account holder must get notification regarding the same.

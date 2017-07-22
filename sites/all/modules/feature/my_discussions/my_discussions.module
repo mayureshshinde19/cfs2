@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the My Discussions feature.
+ */
+
+include_once 'my_discussions.features.inc';

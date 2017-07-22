@@ -1,0 +1,66 @@
+<?php
+/**
+* Implements gook_block_info()
+**/
+function userWelcome_block_info() {
+  $block['welcome'] = array(
+    'info' => t('Welcome message for user'),
+    'cache' => DRUPAL_CACHE_PER_USER,
+  );
+  return $block;
+}
+
+/**
+* Implements hook_block_view()
+**/
+function userWelcome_block_view($delta = '') {
+
+  global $user;
+  $block = array();
+  switch($delta) {
+    case 'welcome':
+	  if ($user->uid) {
+	    $block['subject'] = '';
+	    $block['content'] = array(
+	      // '#markup' => t('Welcome !username', array('!username' => $user->name)
+	      // 	),
+	      '#theme' => 'userWelcome_welcome_block',
+          '#user' => $user,
+	    );
+	  }
+	break;
+  }
+  return $block;
+}
+
+/**
+* Implements hook_theme()
+**/
+function userWelcome_theme($existing, $type, $theme, $path) {
+  return array(
+  	'userWelcome_welcome_block' => array(
+  	  'variables' => array('user' => NULL),
+  	  ),
+  	);
+}
+
+/**
+ * Theme the user welcome block for a given user.
+ */
+function theme_userWelcome_welcome_block($variables) {
+  $user = $variables['user'];
+  $output = t('Welcome !username!', array('!username' => theme('username', array('account' => $user))));
+  return $output;
+}
+
+
+// // for overriding your theme for this block, use the following code inside template.php of your theme
+// /**
+// * Override theme for user welcome block
+// **/
+
+// function yourthemename_userWelcome_welcome_block($variables) {
+//   $user = $variables['user'];
+//   $output = t('Welcome !username!', array('!username' => theme('username', array('account' => $user))));
+//   return $output;
+// }

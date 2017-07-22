@@ -1,0 +1,31 @@
+BI Client Members KT session : 25th May 2017
+
+Topic:- Demonstration on creating a dev environment for a new user
+
+1. Deep demonstrated creation of new dev environment for Jorge(Ivan)
+2. A dev environment was created for Raul as well as Matias
+
+
+Topic:- Demo on Jenkinjob configuration for Raul and Matias
+
+1. Deep created user roles for Raul and Matias and configured jenkin job for both.
+2. Overview of the Jenkins workflow
+
+Topic:- Demo on Virtualmin for modifying, manipulating and deleting virtual servers
+
+1. Overview of the virtualmin website
+2. Deep demonstrated use of Virtualmin to delete an entire virtual server for inactive users.
+
+
+Topic:- SPBTH Site spin up process for Raul and Matias' dev environment.
+
+1. After creating a dev environment, Both tried the site spin up process on their individual systems.
+2. Deep gave details on each level of dev environment as well as site spin up process.
+
+
+Topic:- Discussion on migrating the HUB platform to Drupal8
+
+1. Matias suggested migrating the SPBTHs to Drupal 8 in an intial stage, if drupal 8 update is initiated.
+2. Deep suggested an additional installation profile can serve the purpose mentioned above.
+3. There would be need of upgrading the code, database, important services like Veeva Vault, DTM etc.
+4. It is possible to make these changes step by step.

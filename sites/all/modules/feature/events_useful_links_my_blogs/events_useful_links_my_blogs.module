@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the events,useful-links,my-blogs feature.
+ */
+
+include_once 'events_useful_links_my_blogs.features.inc';
