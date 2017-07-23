@@ -828,7 +828,7 @@ ul.quicktabs-tabs.quicktabs-style-basic li {
 
 
 #header-inside-right .region-search-area .block-userwelcome {
-	margin-top: 35px;
+	margin-top: 15%;
 }
 
 body.page-dashboard #content-inside {
@@ -841,12 +841,20 @@ body.page-dashboard #content-inside .grid_12 {
 	float:none !important;
 }
 
-body.page-dashboard #header-inside-right {
-  margin-left: 86px;
+body.page-dashboard #header-inside {
+  margin-left: 10%;
 }
 
 
 .page-dashboard .view-my-documents .view-footer
  {
 	text-align: right;
+}
+
+body #header-inside-right .views-exposed-form .views-exposed-widget .form-submit {
+	display: none;
+}
+
+#views-exposed-form-clone-of-search-page-default .views-exposed-form .views-exposed-widget .form-submit {
+	margin-top: 0;
 }

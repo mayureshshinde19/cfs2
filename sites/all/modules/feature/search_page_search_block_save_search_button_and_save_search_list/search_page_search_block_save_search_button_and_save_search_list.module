@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the search page, search block , save search button and save search list feature.
+ */
+
+include_once 'search_page_search_block_save_search_button_and_save_search_list.features.inc';
