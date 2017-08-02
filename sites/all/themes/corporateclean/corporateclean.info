@@ -10,6 +10,8 @@ stylesheets[all][] = style.css
 stylesheets[all][] = color/colors.css
 stylesheets[all][] = css/frontpage_slideshow.css
 
+scripts[] = js/custom.js
+
 regions[navigation] = Navigation
 regions[search_area] = Search area
 regions[highlighted] = Highlighted

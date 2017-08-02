@@ -37,8 +37,8 @@ img { max-width: 100%; height: auto;
 code { font-family: "Courier New", Courier, monospace; }
 
 blockquote { background:transparent url('images/blockquote.png') no-repeat top left; margin: 40px 0; padding: 0 55px; }
-
-.breadcrumb { padding:0 10px 20px 0; }
+/*shikha  Reduce the space above the bread crumb*/
+.breadcrumb { padding:0 5px 5px 0; }
 
 .breadcrumb-separator { padding:0 8px 0 4px; }
 
@@ -46,20 +46,20 @@ blockquote { background:transparent url('images/blockquote.png') no-repeat top l
 
 .region-sidebar-first .block h2, .region-sidebar-second .block h2 {  margin: 0 0 15px 0; padding:0 0 5px 0; }
 
-.region-content { line-height:155%; width: 100%;
+.region-content { /*line-height:155%;*/ width: 100%;
     margin: auto; } 
 
-#site-name { font-size:182%; margin-left: 50px; }
+#site-name { font-size:182%; margin-left: 50px; font-weight:bold; }
 
 /* 
 * Layout 
 */
-#header { clear:both; height: 100px;float: left;
+#header {width:100%; clear:both; height: 100px;float: left;
 margin: 0px 0px 0px 35px;
 display: inline-flex; }
 
-#header-inside { margin: 0 auto; padding:24px 0; overflow:hidden; }  
-
+#header-inside { width:70%; margin: 0 55px; padding:24px 0; overflow:hidden; margin-left: 12px; }  
+ 
 #header-menu { clear:both; }
 
 #logo { display:block; overflow:hidden; padding:0; margin:0; }
@@ -72,7 +72,7 @@ display: inline-flex; }
 
 #content { clear:both; overflow:hidden; }
 
-#content-inside { padding:30px 0 60px;     min-height: 500px;} 
+#content-inside { padding:25px 0 60px 0; min-height: 500px;} 
 
 #main {  }
 
@@ -109,9 +109,12 @@ display: inline-flex; }
 /*
 * Sidebar Blocks - Menus
 */
+
+/*shikha Sidebar inside the article pages should have the same css as applied on the landing page.(box css)*/
+
 .region-sidebar-first .block .content, .region-sidebar-second .block .content  { border:1px solid #ffffff; 
 -webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px; 
-padding: 20px; overflow:hidden; margin:0 0 40px 0;
+padding: 10px 15px; overflow:hidden; margin:0 0 0 0;
  /* shadow */
 -webkit-box-shadow: 0 2px 6px #efefef inset;  -moz-box-shadow:0 2px 6px #efefef inset;  box-shadow:0 2px 6px #efefef inset; }
 
@@ -199,7 +202,7 @@ padding: 20px; overflow:hidden; background:#ffffff; margin:25px 0 0 0; font-styl
 #header-menu ul.menu li a { outline:none; text-decoration: none; margin:0 25px 0 0; padding:10px 5px; font-size:14px; font-weight:normal; 
 text-align:center; text-transform:uppercase; font-family: Myriad Pro,"Lucida Grande","Lucida Sans Unicode",Segoe UI,Helvetica,Arial,sans-serif; display:block; }
 
-#header-menu ul.menu li.first a { padding-left:0; }
+#header-menu ul.menu li.first a { /*padding-left:0;*/ }
 
 #header-menu ul.menu li.last a { padding-right:0; }
 
@@ -428,7 +431,9 @@ table { border-spacing:0; border:0; width:100%;  }
 
 table td, table th { border:1px solid #bbbbbb; }
 
-table th { background:#008ab8; color:#ffffff; font-weight:bold; }
+/*shikha All headers in the html tables should be aligned at the center.*/
+
+table th { background:#008ab8; color:#ffffff; font-weight:bold;text-align: center;}
 
 table tr.odd { background:transparent; }
 
@@ -495,7 +500,8 @@ input.form-text {
   background:#e8e8e8; 
   border:1px solid #f2f2f2;
 font-family: "Lucida Grande","Lucida Sans Unicode",Segoe UI,Helvetica,Arial,sans-serif; 
-height:25px; 
+/*shikha Reduce height of all text box */
+height:20px; 
 line-height:25px; 
 margin:0 0 10px 0; 
 padding:5px; 
@@ -555,11 +561,12 @@ ul.social-bookmarks li.delicious a { background:url('images/social-media-delicio
 /**
  * Local tasks
  */
-ul.primary, ul.tabs { clear:both; margin:10px 0 35px 0; white-space: normal }
+ /*shikha Reduce spaces between title and text */
+ul.primary, ul.tabs { clear:both; margin:10px 0 20px 0; white-space: normal }
 
 ul.primary li, ul.tabs li { padding:10px 0; line-height:130%; }
 
-ul.primary li a, ul.tabs li a { margin:0; padding: 4px 1em; display: inline-block; display: none; }
+ul.primary li a, ul.tabs li a { margin:0; padding: 4px 1em; display: inline-block; }
 
 
 /* New Part */
@@ -586,7 +593,7 @@ ul.primary li a, ul.tabs li a { margin:0; padding: 4px 1em; display: inline-bloc
 }
 
 #header-inside-right {
-  width: 200px;
+  width: 20%;
 }
 
 #first-time p{
@@ -604,12 +611,12 @@ ul.primary li a, ul.tabs li a { margin:0; padding: 4px 1em; display: inline-bloc
 
 
 /* Quick styles*/
-
+/*shikha Add one line spaces between the links*/
 .item-list ul li {   
   list-style: none;
   text-decoration: none;
   margin: auto;
-  padding-left: 0px; 
+  padding: 4px 0px; 
 }
 
 ul.quicktabs-tabs.quicktabs-style-basic a {
@@ -743,7 +750,7 @@ ul.quicktabs-tabs.quicktabs-style-basic li {
 }
 
 #footer-bottom { 
-	background: #0079a2 !important;
+	background: #085F7E !important;
 }
 
 .views-exposed-form .views-exposed-widget .form-submit {
@@ -773,26 +780,28 @@ ul.quicktabs-tabs.quicktabs-style-basic li {
 .panel-col-first .pane-title,
 .pane-quicktabs-my-quick-tabs .pane-title, 
 .panel-col-last .pane-title {
-  background: rgba(37, 141, 210, 0.74);
+  background: rgba(8,95,126,0.74);
   color: #FFFFFF;
   margin: 0px 0 5px 0;
   padding: 6px 10px;
   font-size: 14px;
+  text-shadow:none !important;
 }
-
+/*shikha Add one line spaces between the links */ 
 .pane-saved-search-list > .pane-content, 
 .frontpage_useful_links > .pane-content,
 .pane-quicktabs-my-quick-tabs > .pane-content,
 .pane-news-block > .pane-content,
 .pane-view-events > .pane-content{
-	padding: 10px;
+	padding:5px 0 0 0;
 }
 
 .pane-news-block .view-news-block .item-list ul, .pane-view-events .view-view-events .item-list ul {
   margin: 10px 0 10px 10px;
 }
+/*shikha Add one line spaces between the links */
 .pane-news-block .view-news-block .item-list ul li, .pane-view-events .view-view-events .item-list ul li {
-  margin-bottom: 10px;
+  margin-bottom: 2px;
   text-decoration:	none;
 }
 
@@ -828,7 +837,7 @@ ul.quicktabs-tabs.quicktabs-style-basic li {
 
 
 #header-inside-right .region-search-area .block-userwelcome {
-	margin-top: 15%;
+	margin-top: 4%;
 }
 
 body.page-dashboard #content-inside {
@@ -841,9 +850,13 @@ body.page-dashboard #content-inside .grid_12 {
 	float:none !important;
 }
 
-body.page-dashboard #header-inside {
-  margin-left: 10%;
+body.page-dashboard #header-inside-right {
+  /*margin-left: 120px;*/
 }
+
+/*body.page-dashboard #header-inside {
+  margin-left: 10%;
+}*/
 
 
 .page-dashboard .view-my-documents .view-footer
@@ -855,6 +868,65 @@ body #header-inside-right .views-exposed-form .views-exposed-widget .form-submit
 	display: none;
 }
 
-#views-exposed-form-clone-of-search-page-default .views-exposed-form .views-exposed-widget .form-submit {
+/*#views-exposed-form-clone-of-
+
+
+-page-default .views-exposed-form .views-exposed-widget .form-submit {
 	margin-top: 0;
+}*/
+
+
+#block-views-exp-search-page-page .views-exposed-form .views-exposed-widget label, 
+.region-search-area .-userwelcome {
+	color: #0079a2;
+}
+
+
+
+/*Shikha */
+#sidebar-second .region-sidebar-second{
+	width:85%;
+	border: 1px solid #E1D9F3;
+	box-shadow: 0px 0px 5px #E1D9F3;
+}
+#sidebar-second .region-sidebar-second h2{
+	/* background: rgba(8,95,126,0.74);
+    text-shadow: none;
+    color: #fff;
+    font-size: 14px;
+    padding: 10px; */
+	
+	background: rgba(8,95,126,0.74);
+    color: #FFFFFF;
+    margin: 0px 0 5px 0;
+    padding: 6px 10px;
+    font-size: 14px;
+    text-shadow: none !important;
+	
+}
+
+#sidebar-second{
+	    margin: 50px 0 0 10px;		
+    /* padding: 10px; */
+}
+#sidebar-second .region-sidebar-second .content{
+	padding:5px 0 0 0;
+}
+/*shikha When we click on 'more' in blocks, the displayed links should be diplayed in a alternate shaded table.*/
+.view-display-id-page .view-content .item-list  ul  li:nth-child(odd),
+.view-display-id-page_1  .view-content .item-list  ul  li:nth-child(odd){
+    background-color: #DDEBF7;
+}
+
+.view-display-id-page .view-content .item-list  ul  li:nth-child(even),.view-display-id-page_1  .view-content .item-list  ul  li:nth-child(even){
+    background-color: #EFF7FF;
+}
+
+
+.content .profile .user-name label , .content .profile .mail-id label,.content .profile.field,.content .profile.field-items{
+	display:inline;
+}
+/*shikha Reduce gap between titile and links.*/
+.panel-col-last .inside .panel-pane .pane-content{
+padding:0;
 }

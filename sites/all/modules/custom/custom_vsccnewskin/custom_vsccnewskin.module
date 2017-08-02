@@ -52,3 +52,34 @@ function corporateclean_vscc_element_sand_icons($vars) {
   );
   return theme('image', $image_vars);
 }
+
+function custom_vsccnewskin_form_alter(&$form, &$form_state, $form_id) {
+  if($form_id == 'documents_node_form') {
+    // $result = db_select('field_data_field_user_service_line','n')
+    //       ->fields('n',array('entity_id','field_user_service_line_tid'))
+    //       ->execute()
+    //       ->fetchAssoc();
+
+  global $user;
+  $user_fields = user_load($user->uid);  
+  // echo '<pre>';
+  // //print_r($user_fields->field_user_service_line['und']['0']['tid']);
+  // echo '</pre>';
+  $term = $user_fields->field_user_service_line['und']['0']['tid'];
+  $term_parents = taxonomy_get_parents_all($user_fields->field_user_service_line['und']['0']['tid']);
+  foreach($term_parents as $value) {
+   $all_terms[] = $value->tid;
+  }
+  $term_ids = array();
+  $term_ids['low'] = $all_terms[0];
+  $term_ids['mid'] = $all_terms[1];
+  $term_ids['high'] = $all_terms[2];
+   drupal_add_js(array('jsVars' => $term_ids), array('type' => 'setting'));
+  }
+
+}
+
+// function custom_vsccnewskin_form_alter(&$form, &$form_state, $form_id) { 
+//   $termid = 1;
+//     drupal_add_js(array('jsVars' => $termid), array('type' => 'setting'));
+// }
