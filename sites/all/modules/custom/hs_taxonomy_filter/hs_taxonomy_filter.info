@@ -1,0 +1,9 @@
+name = Hierarchical Select Taxonomy Filter
+description = User specific taxonomy filter for adding documents(assets) to the site.
+dependencies[] = hierarchical_select
+dependencies[] = taxonomy
+package = custom
+
+core = 7.x
+
+

@@ -1,0 +1,113 @@
+<?php
+function hs_taxonomy_filter_form_alter(&$form, &$form_state, $form_id) {
+  if($form_id == 'documents_node_form') {
+    $form['field_asset_service_line'][LANGUAGE_NONE]['#config']['module'] = 'hs_taxonomy_filter';
+  }
+}
+
+function hs_taxonomy_filter_hierarchical_select_params() {
+  return hs_taxonomy_hierarchical_select_params(); 
+}
+
+function hs_taxonomy_filter_hierarchical_select_root_level($params, $dropbox = FALSE) {
+  return hs_taxonomy_hierarchical_select_root_level($params, $dropbox); 
+}
+
+function hs_taxonomy_filter_hierarchical_select_children($parent, $params, $dropbox = FALSE) {
+      global $user;
+  $user_fields = user_load($user->uid);
+
+  //echo '<pre>';
+  //print_r($user_fields);
+
+  //print_r($user_fields->field_user_service_line);
+  //exit();
+
+  $user_service_line = $user_fields->field_user_service_line['und'];
+
+  $all_terms = array();
+  for($i=0; $i<count($user_service_line); $i++) {
+    $user_assigned_terms = $user_fields->field_user_service_line['und'][$i]['tid'];
+    $all_user_terms[] = $user_assigned_terms;
+  }
+
+  //$all_terms = array_unique($all_terms);
+
+  $tree = taxonomy_get_tree($params['vid']);
+  
+  foreach($tree as $term) {
+    $all_tax_terms[] = $term->tid;
+  }
+
+  // print_r($all_tax_terms);
+  // exit();
+
+  $excluded_terms = array_diff($all_tax_terms, $all_user_terms);
+
+  if (isset($params['root_term']) && $params['root_term'] && $parent == 0) {
+    return array();
+  }
+
+  $terms = taxonomy_get_children($parent, $params['vid']);
+
+  foreach($excluded_terms as $value) {
+    $params['exclude_tid'] = $value;
+    // Unset the term that's being excluded, if it is among the children.
+    if (isset($params['exclude_tid'])) {
+      unset($terms[$params['exclude_tid']]);
+    }
+  }
+
+  // If the Term Permissions module is installed, honor its settings.
+  if (function_exists('term_permissions_allowed')) {
+    global $user;
+    foreach ($terms as $key => $term) {
+      if (!term_permissions_allowed($term->tid, $user) ) {
+        unset($terms[$key]);
+      }
+    }
+  }
+  return _hs_taxonomy_hierarchical_select_terms_to_options($terms);
+}
+
+function taxonomy_get_children_all($tid, $vid = 0, $key = 'tid'){
+  $c = taxonomy_get_children($tid, $vid, $key);
+  foreach ($c as $t => $d){
+    $result[$t] = $d;
+    $below = taxonomy_get_children_all($t, $vid, $key);
+    if (!empty($below)) {
+      foreach ($below as $nt => $nd){
+        $result[$nt] = $nd;
+      }
+    }
+  }
+  return $result;
+}
+
+function hs_taxonomy_filter_hierarchical_select_lineage($item, $params) {
+  return hs_taxonomy_hierarchical_select_lineage($item, $params);
+}
+
+function hs_taxonomy_filter_hierarchical_select_valid_item($item, $params) {
+  return hs_taxonomy_hierarchical_select_valid_item($item, $params);
+}
+
+function hs_taxonomy_filter_hierarchical_select_item_get_label($item, $params) {
+  return hs_taxonomy_hierarchical_select_item_get_label($item, $params);
+}
+
+function hs_taxonomy_filter_hierarchical_select_create_item($label, $parent, $params) {
+  return hs_taxonomy_hierarchical_select_create_item($label, $parent, $params);
+}
+
+function hs_taxonomy_filter_hierarchical_select_entity_count($item, $params) {
+  return hs_taxonomy_hierarchical_select_entity_count($item, $params);
+}
+
+function hs_taxonomy_filter_hierarchical_select_implementation_info() {
+  return hs_taxonomy_hierarchical_select_implementation_info();
+}
+
+function hs_taxonomy_filter_hierarchical_select_config_info() {
+  return hs_taxonomy_hierarchical_select_config_info();
+}
