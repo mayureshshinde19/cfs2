@@ -101,8 +101,28 @@ function corporateclean_form_alter(&$form, &$form_state, $form_id) {
     $form['actions']['submit'] = array('#type' => 'image_button', '#src' => base_path() . path_to_theme() . '/images/search-button.png');
 
  	$form['search_block_form']['#attributes'] = array('onblur' => "if (this.value == '') {this.value = '{$form_default}';}", 'onfocus' => "if (this.value == '{$form_default}') {this.value = '';}" );
+
+  if($form_id == 'views_exposed_form') {
+  	$view = $form_state['view'];
+  	if ($view->name == 'search_page' && $view->current_display == 'page') {
+  	  echo '<pre>';
+  	  print_r($form);
+  	  echo '</pre>';
+  	  exit();
+    }
+  }
   }
 }
+
+// function corporateclean_form_search_api_page_search_form_global_search_alter(&$form, &$form_state, $form_id) {
+//     unset($form['search-api-page-search-form-global-search']['#title']);
+//     $form['search-api-page-search-form-global-search']['#title_display'] = 'invisible';
+// 	$form_default = t('Search');
+//     $form['search-api-page-search-form-global-search']['#default_value'] = $form_default;
+//     $form['actions']['submit'] = array('#type' => 'image_button', '#src' => base_path() . path_to_theme() . '/images/search-button.png');
+
+//  	$form['search-api-page-search-form-global-search']['#attributes'] = array('onblur' => "if (this.value == '') {this.value = '{$form_default}';}", 'onfocus' => "if (this.value == '{$form_default}') {this.value = '';}" );
+// }
 
 /**
  * Add javascript files for jquery slideshow.
