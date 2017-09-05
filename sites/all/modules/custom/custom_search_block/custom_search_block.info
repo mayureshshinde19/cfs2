@@ -1,0 +1,6 @@
+name = Custom Search Block
+description = Custom searh block that redirects the search query to search page
+package = custom
+core = 7.x
+
+

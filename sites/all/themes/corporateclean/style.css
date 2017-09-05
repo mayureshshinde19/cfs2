@@ -930,3 +930,27 @@ body #header-inside-right .views-exposed-form .views-exposed-widget .form-submit
 .panel-col-last .inside .panel-pane .pane-content{
 padding:0;
 }
+
+/*custom search block */
+/*this is for avoiding icon jump*/
+/*#search-custom-block-form {
+	position: relative;
+}*/
+
+/*this is for submit button css adjustment*/
+#custom-search-block-form .form-actions {
+	position: absolute;
+	top: 62px;
+	right: 56px;
+	/*this is for submit icon css adjustments
+	/*top: -7px;
+	right: 27px;*/
+}
+
+#custom-search-block-form .form-actions #edit-submit {
+	border-radius: 0px 5px 5px 0px;
+    height: 30px;
+    /*this is for css icon in place of button*/
+   /* background:url(/sites/all/themes/corporateclean/images/search-button.png);
+    background-repeat: no-repeat;*/
+}

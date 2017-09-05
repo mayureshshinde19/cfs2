@@ -1,0 +1,88 @@
+<?php
+/**
+ * Implements hook_block_info().
+ */
+function custom_search_block_block_info() {
+  $blocks = array();
+
+  $blocks['customSearch'] = array(
+    'info' => t('My block'), 
+    'region' => 'search_area',
+    'cache' => DRUPAL_NO_CACHE,
+  );
+  return $blocks;
+}
+
+/**
+ * Implements hook_block_view().
+ */
+function custom_search_block_block_view($delta = '') {
+  $block = array();
+
+  switch ($delta) {
+    case 'customSearch':
+      $block['subject'] = t('');
+      $block['content'] = drupal_get_form('custom_search_block_form');
+    break;
+  }
+  return $block;
+}
+
+/**
+ * Custom form.
+ */
+function custom_search_block_form($form, &$form_state) {
+  $form['search_keyword'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Search'),
+    '#title_display' => 'invisible',
+    '#size' => 15,
+    '#default_value' => '',
+    '#attributes' => array('title' => t('Enter the terms you wish to search for.')),
+    '#attributes' => array('placeholder' => t('Search'))
+  );
+  $form['actions'] = array('#type' => 'actions');
+  $form['actions']['submit'] = array('#type' => 'submit', '#value' => t('Go'));
+  $form['#submit'][] = 'custom_search_block_form_submit';
+  return $form;
+}
+
+/**
+ * Custom form submit function.
+ */
+function custom_search_block_form_submit($form, &$form_state) {
+  $keys = $form_state['values']['search_keyword'];
+  if (isset($_POST['destination'])) {
+    unset($_POST['destination']);
+  }
+
+  if ($form_state['values']['search_keyword'] == '') {
+    form_set_error('keys', t('Please enter some keywords.'));
+  }
+  else {
+    $form_state['redirect'] = array(
+      'search-page',array('query' => array('search_api_views_fulltext' => $keys,),
+      ),
+    );
+  }
+}
+
+
+// function template_preprocess_custom_search_block_form(&$variables) {
+//   //$variables = array();
+//   echo '<pre>';
+//   print_r($variables);
+//   echo '</pre>';
+
+// }
+
+
+// function custom_search_block_form_theme($form) {
+//   return array(
+//     'search_custom_block_form' => array(
+//       'render element' => 'form',
+//       'template' => 'search-custom-block-form',
+//     ),
+//   );
+// }
+
