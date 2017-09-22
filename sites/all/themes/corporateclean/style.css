@@ -938,19 +938,44 @@ padding:0;
 }*/
 
 /*this is for submit button css adjustment*/
-#custom-search-block-form .form-actions {
+/*#custom-search-block-form .form-actions {
 	position: absolute;
 	top: 62px;
 	right: 56px;
 	/*this is for submit icon css adjustments
 	/*top: -7px;
-	right: 27px;*/
-}
+	right: 27px;
+}*/
 
-#custom-search-block-form .form-actions #edit-submit {
+/*#custom-search-block-form .form-actions #edit-submit {
 	border-radius: 0px 5px 5px 0px;
     height: 30px;
-    /*this is for css icon in place of button*/
+    this is for css icon in place of button
    /* background:url(/sites/all/themes/corporateclean/images/search-button.png);
-    background-repeat: no-repeat;*/
+    background-repeat: no-repeat;
+}*/
+
+/*.custom-search-block-form {
+	position: relative;
+}
+
+.custom-search-block-form .custom-search-textfield {
+	width: 75%;
+	float: left;
+}
+
+.custom-search-block-form .custom-search-button {
+	position: absolute;
+	top: 13px;
+	right: 37px;
+}
+
+.custom-search-block-form .custom-search-button #edit-submit {
+	border-radius: 0px 5px 5px 0px;
+	height: 30px;
+}*/
+
+/*adjusting the size of the menu-icon links */
+.grid_12 .region-navigation .content .icon-size {
+  font-size: 25px;
 }

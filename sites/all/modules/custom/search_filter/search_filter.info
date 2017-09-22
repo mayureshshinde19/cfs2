@@ -1,0 +1,5 @@
+name = Search Filter
+description = this module adds custom exposed filter to search page view
+core = 7.x
+version = 1.x
+package = custom

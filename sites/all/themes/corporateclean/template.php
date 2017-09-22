@@ -102,26 +102,48 @@ function corporateclean_form_alter(&$form, &$form_state, $form_id) {
 
  	$form['search_block_form']['#attributes'] = array('onblur' => "if (this.value == '') {this.value = '{$form_default}';}", 'onfocus' => "if (this.value == '{$form_default}') {this.value = '';}" );
 
-  if($form_id == 'views_exposed_form') {
-  	$view = $form_state['view'];
-  	if ($view->name == 'search_page' && $view->current_display == 'page') {
-  	  echo '<pre>';
-  	  print_r($form);
-  	  echo '</pre>';
-  	  exit();
-    }
-  }
   }
 }
 
-// function corporateclean_form_search_api_page_search_form_global_search_alter(&$form, &$form_state, $form_id) {
-//     unset($form['search-api-page-search-form-global-search']['#title']);
-//     $form['search-api-page-search-form-global-search']['#title_display'] = 'invisible';
-// 	$form_default = t('Search');
-//     $form['search-api-page-search-form-global-search']['#default_value'] = $form_default;
-//     $form['actions']['submit'] = array('#type' => 'image_button', '#src' => base_path() . path_to_theme() . '/images/search-button.png');
+function corporateclean_preprocess_node(&$variables) {
+	$node = $variables['node'];
+  $view_mode = $variables['view_mode'];
+  
+  // Set up template suggestions for non-standard view modes
+  if ($view_mode == 'full') {
+    $variables['theme_hook_suggestions'][] = 'node__' . $node->type . '__' . $view_mode;
+  }
+}
 
-//  	$form['search-api-page-search-form-global-search']['#attributes'] = array('onblur' => "if (this.value == '') {this.value = '{$form_default}';}", 'onfocus' => "if (this.value == '{$form_default}') {this.value = '';}" );
+// function corporateclean_menu_link(array $variables) {
+//   $element = $variables['element'];
+//   $sub_menu = '';
+    
+//   $element['#attributes']['class'][] = 'level-' . $element['#original_link']['depth'];
+  
+  
+//   if (isset($element['#original_link']['options']['attributes']['class'])) {
+//     $array_class = $element['#original_link']['options']['attributes']['class'];
+//     $count = count($array_class);
+    
+//     for ($i=0; $i <= $count; $i++){      
+//       if (substr($array_class[$i], 0, 3) == 'fa-' ){
+//         $icon = '';
+//         $output = '' . $icon . '';
+        
+//         return '' . $output . $sub_menu . "\n";
+//       } 
+//     } 
+//   }
+//   else {
+//     $output = l($element['#title'], $element['#href'], $element['#localized_options']);
+    
+//     if ($element['#below']) {
+//         $sub_menu = drupal_render($element['#below']);
+//       }
+      
+//     return '' . $output . $sub_menu . "\n";
+//   }
 // }
 
 /**

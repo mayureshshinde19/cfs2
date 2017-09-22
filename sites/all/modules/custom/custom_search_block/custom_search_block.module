@@ -6,7 +6,7 @@ function custom_search_block_block_info() {
   $blocks = array();
 
   $blocks['customSearch'] = array(
-    'info' => t('My block'), 
+    'info' => t('Custom search block'), 
     'region' => 'search_area',
     'cache' => DRUPAL_NO_CACHE,
   );
@@ -44,6 +44,13 @@ function custom_search_block_form($form, &$form_state) {
   $form['actions'] = array('#type' => 'actions');
   $form['actions']['submit'] = array('#type' => 'submit', '#value' => t('Go'));
   $form['#submit'][] = 'custom_search_block_form_submit';
+  $path = drupal_get_path('module', 'custom_search_block');
+  $form['#attached'] = array(
+    'css' => array(
+      'type' => 'file',
+      'data' => $path . '/custom_search_block.css',
+    ),
+  );
   return $form;
 }
 
@@ -68,21 +75,48 @@ function custom_search_block_form_submit($form, &$form_state) {
 }
 
 
-// function template_preprocess_custom_search_block_form(&$variables) {
-//   //$variables = array();
-//   echo '<pre>';
-//   print_r($variables);
-//   echo '</pre>';
+/**
+ * Implements hook_theme().
+ */
+function custom_search_block_theme() {
+  return array(
+    'custom_search_block_form' => array(
+      'render element' => 'form',
+      // 'template' => 'custom-search-block-form',
+      // 'path' => drupal_get_path('module', 'custom_search_block'),
+    ),
+  );
+}
 
-// }
+/**
+* Implements theme function()
+*/
+function theme_custom_search_block_form($variables) {
+  $form = $variables['form'];
+  //$output = '<h4>'.t('custom search block').'</h4>';
+  $output = '<div class="custom-search-block-form">';
+  $output .= '<div class="custom-search-textfield">';
+  $output .= drupal_render($form['search_keyword']);
+  $output .= '<div class="custom-search-button">';
+  $output .= drupal_render($form['actions']['submit']);
+  $output .= '</div>';
+  $output .= '</div>';
+  $output .= '</div>';
+  $output .= drupal_render_children($form);
+  return $output;
+}
 
 
-// function custom_search_block_form_theme($form) {
-//   return array(
-//     'search_custom_block_form' => array(
-//       'render element' => 'form',
-//       'template' => 'search-custom-block-form',
-//     ),
-//   );
-// }
-
+function custom_search_block_form_views_exposed_form_alter(&$form, &$form_state, $form_id) {
+  // if($form['#id'] == 'views-exposed-form-search-page-page') {
+  //   drupal_set_message("Form ID is : " . $form['#id']);
+  // }
+  // $view = $form_state['view'];
+  // if ($view->name == 'search_page' && $view->current_display == 'page') {
+  //   echo '<pre>';
+  //   print_r($form);
+  //   echo '</pre>';
+  //   exit();
+  // }
+}
+// ?>

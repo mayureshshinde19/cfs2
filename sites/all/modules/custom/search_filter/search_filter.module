@@ -1,0 +1,45 @@
+<?php
+/**
+ * Implements hook_views_api().
+ */
+function search_filter_views_api() {
+  return array(
+    'api' => 3,
+    'path' => drupal_get_path('module', 'search_filter') . '/inc',
+  );
+}
+
+/**
+ * Implementation of hook_views_handlers() to register all of the basic handlers
+ * views uses.
+ */
+function search_filter_views_handlers() {
+  return array(
+    'info' => array(
+      // path to handler files
+      'path' => drupal_get_path('module', 'search_filter') . '/inc',
+    ),
+    'handlers' => array(
+      // register our custom filter, with the class/file name and parent class
+      'search_filter_handler_filter_service_line_filter' => array(
+        'parent' => 'views_handler_filter',
+      ),
+    ),
+  );
+}
+
+function search_filter_views_data() {
+  $data = array();
+
+  $data['search_api_index_site_search_index
+']['service_line_filter'] = array(
+    'group' => t('Custom'),
+    'real field' => 'custom_filter_field',
+    'title' => t('custom service line filter'),
+    'help' => t('Some more detailed description if you need it.'),
+    'filter' => array(
+      'handler' => 'search_filter_handler_filter_service_line_filter',
+    ),
+  );
+  return $data;
+}
