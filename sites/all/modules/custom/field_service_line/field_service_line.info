@@ -1,0 +1,4 @@
+name = field_service_line
+description = service line for user
+package = custom modules
+core = 7.x

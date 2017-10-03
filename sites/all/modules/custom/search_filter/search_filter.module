@@ -17,7 +17,7 @@ function search_filter_views_handlers() {
   return array(
     'info' => array(
       // path to handler files
-      'path' => drupal_get_path('module', 'search_filter') . '/inc',
+      'path' => drupal_get_path('module', 'search_filter') . '/views',
     ),
     'handlers' => array(
       // register our custom filter, with the class/file name and parent class
@@ -31,8 +31,7 @@ function search_filter_views_handlers() {
 function search_filter_views_data() {
   $data = array();
 
-  $data['search_api_index_site_search_index
-']['service_line_filter'] = array(
+  $data['search_api_index_site_search_index']['service_line_filter'] = array(
     'group' => t('Custom'),
     'real field' => 'custom_filter_field',
     'title' => t('custom service line filter'),

@@ -3,3 +3,4 @@ description = this module adds custom exposed filter to search page view
 core = 7.x
 version = 1.x
 package = custom
+files[] = views/search_filter_handler_filter_service_line_filter
